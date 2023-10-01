@@ -44,22 +44,23 @@
         app:layout_constraintTop_toBottomOf="@id/editTextFirstNumber" />
 
     <Button
+
         android:id="@+id/btnDivision"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="88dp"
         android:text="Division"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.543" />
+        app:layout_constraintVertical_bias="0.636" />
 
     <Button
         android:id="@+id/btnMultiplication"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="312dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="248dp"
         android:text="Multiplication"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/btnDivision" />
@@ -68,11 +69,10 @@
         android:id="@+id/btnSubtraction"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="368dp"
-        android:layout_marginEnd="12dp"
+        android:layout_marginTop="372dp"
+        android:layout_marginEnd="80dp"
         android:text="Subtraction"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/btnMultiplication"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
@@ -82,10 +82,22 @@
         android:layout_marginTop="372dp"
         android:layout_marginEnd="8dp"
         android:text="Addition"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintEnd_toStartOf="@id/btnSubtraction"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.7"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/textResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#3F51B5"
+        android:width="100dp"
+        android:height="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.469"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.755" />
 </androidx.constraintlayout.widget.ConstraintLayout>

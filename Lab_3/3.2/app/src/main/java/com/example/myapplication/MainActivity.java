@@ -27,5 +27,6 @@ public class MainActivity extends AppCompatActivity {
         list = findViewById(R.id.list_item);
         traiCayList = new ArrayList<>();
         traiCayList.add(new TraiCay("Tao","Tao co nhieu chat dinh duong", R.drawable.tao2));
+        traiCayList.add(new TraiCay("Dua","Dua co nhieu chat dinh duong", R.drawable.dua));
     }
 }

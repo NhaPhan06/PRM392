@@ -1,38 +1,34 @@
 package com.example.myapplication;
 
 import android.content.Context;
-import android.database.DataSetObserver;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.Nullable;
-
 import java.util.List;
 
-public class TraiCayAdapter extends BaseAdapter {
+public class FootBallAdapter extends BaseAdapter {
     private Context context;
     private int layout;
-    private List<TraiCay> TraiCayList;
+    private List<FootBall> List;
 
-    public TraiCayAdapter(Context context, int layout, List<TraiCay> traiCayList) {
+    public FootBallAdapter(Context context, int layout, List<FootBall> list) {
         this.context = context;
         this.layout = layout;
-        TraiCayList = traiCayList;
+        List = list;
     }
 
     @Override
     public int getCount() {
-        return TraiCayList.size();
+        return List.size();
     }
 
     @Override
     public Object getItem(int i) {
-        return TraiCayList.get(i);
+        return List.get(i);
     }
 
     @Override
@@ -45,14 +41,16 @@ public class TraiCayAdapter extends BaseAdapter {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         view = inflater.inflate(layout, null);
 
-        TextView tvName = view.findViewById(R.id.tvTraiCay);
-        TextView tvMota = view.findViewById(R.id.tvMoTa);
-        ImageView imageResource  = view.findViewById(R.id.imageResource);
+        TextView tvFullName = view.findViewById(R.id.tvFullName);
+        TextView tvDOB = view.findViewById(R.id.tvDOB);
+        ImageView countryFlag = view.findViewById(R.id.countryFlag);
+        ImageView imageResource = view.findViewById(R.id.imageResource);
 
-        TraiCay traicay = TraiCayList.get(position);
-        tvName.setText(traicay.getTen());
-        tvName.setText(traicay.getMota());
-        imageResource.setImageResource(traicay.getHinh());
+        FootBall footballList = List.get(position);
+        tvFullName.setText(footballList.getFullName());
+        tvDOB.setText(footballList.getDateOfBirthString());
+        countryFlag.setImageResource(footballList.getCountryFlag());
+        imageResource.setImageResource(footballList.getImageResource());
         return view;
     }
 }
