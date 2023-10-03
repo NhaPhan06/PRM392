@@ -13,7 +13,7 @@ import android.widget.TextView;
 public class activity_ex3_signin extends AppCompatActivity implements View.OnClickListener {
     Button back;
     private final String REQUIRE = "Require";
-
+    private static final int BUTTON_SIGN_IN_ID = R.id.buttonSignIn;
     EditText editTextUsername;
     EditText editTextPassword;
     Button buttonSignIn;
@@ -26,7 +26,7 @@ public class activity_ex3_signin extends AppCompatActivity implements View.OnCli
         back = (Button) findViewById(R.id.back);
 
         back.setOnClickListener(view -> {
-            Intent intent = new Intent();
+            Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         });
         editTextUsername = findViewById(R.id.editTextUsername);
@@ -70,14 +70,10 @@ public class activity_ex3_signin extends AppCompatActivity implements View.OnCli
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.buttonSignIn:
-                signIn();
-                break;
-
-            case R.id.textViewCreate:
-                signUpForm();
-                break;
+        if (view.getId() == BUTTON_SIGN_IN_ID) {
+            signIn();
+        } else if (view.getId() == R.id.textViewCreate) {
+            signUpForm();
         }
     }
 }

@@ -28,7 +28,7 @@ public class activity_ex3_signup extends AppCompatActivity implements View.OnCli
         back = (Button) findViewById(R.id.back);
 
         back.setOnClickListener(view -> {
-            Intent intent = new Intent();
+            Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         });
         editTextUsername = findViewById(R.id.editTextUsername);
@@ -68,28 +68,24 @@ public class activity_ex3_signup extends AppCompatActivity implements View.OnCli
         return true;
     }
 
-    private void signUp() {
+     public void signUp() {
         if (!checkInput()) {
             return;
         }
         Toast.makeText(this, "Sign up success", Toast.LENGTH_SHORT).show();
     }
 
-    private void singInForm() {
+     public void singInForm() {
         Intent intent = new Intent(this, activity_ex3_signin.class);
         startActivity(intent);
         finish();
     }
-
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.buttonSignUp:
-                signUp();
-                break;
-            case R.id.textViewSignIn:
-                singInForm();
-                break;
+        if (v.getId() == R.id.buttonSignUp) {
+            signUp();
+        } else if (v.getId() == R.id.textViewSignIn) {
+            singInForm();
         }
     }
 }

@@ -20,6 +20,8 @@ public class activity_ex1 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_ex1);
+
         editTextNumberMin = findViewById(R.id.editTextNumberMin);
         editTextNumberMax = findViewById(R.id.editTextNumberMax);
         btnGenerate = findViewById(R.id.btnGenerate);
@@ -55,11 +57,11 @@ public class activity_ex1 extends AppCompatActivity {
             }
         });
 
-        setContentView(R.layout.activity_ex1);
+
         back = (Button) findViewById(R.id.back);
 
         back.setOnClickListener(view -> {
-            Intent intent = new Intent();
+            Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         });
     }

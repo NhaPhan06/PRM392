@@ -6,12 +6,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 
-public class Ex1 extends AppCompatActivity {
+public class activity_singin extends AppCompatActivity {
     Button back;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ex1);
+        setContentView(R.layout.activity_singin);
         back = (Button) findViewById(R.id.back);
 
         back.setOnClickListener(view -> {

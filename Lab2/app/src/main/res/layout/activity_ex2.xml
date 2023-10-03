@@ -93,6 +93,7 @@
         android:background="#3F51B5"
         android:width="100dp"
         android:height="50dp"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.469"
