@@ -18,6 +18,7 @@ import java.util.List;
 public class Ex1Activity extends AppCompatActivity {
 
     Button back;
+    private int selectedItemPosition = -1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +51,28 @@ public class Ex1Activity extends AppCompatActivity {
                 list.remove(i);
                 arrayAdapter.notifyDataSetChanged();
                 return false;
+            }
+        });
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                selectedItemPosition = i;
+                String selectedItem = arrayAdapter.getItem(i);
+                editText.setText(selectedItem);
+            }
+        });
+        btnUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (selectedItemPosition != -1) {
+
+                    String updatedItem = editText.getText().toString();
+                    arrayAdapter.remove(arrayAdapter.getItem(selectedItemPosition));
+                    arrayAdapter.insert(updatedItem, selectedItemPosition);
+                    selectedItemPosition = -1;
+                    editText.setText("");
+                }
             }
         });
 

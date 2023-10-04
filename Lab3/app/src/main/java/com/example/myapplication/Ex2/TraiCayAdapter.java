@@ -41,6 +41,7 @@ public class TraiCayAdapter extends BaseAdapter {
         return i;
     }
 
+
     @Override
     public View getView(int position, View view, ViewGroup parent) {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -52,7 +53,7 @@ public class TraiCayAdapter extends BaseAdapter {
 
         TraiCay traicay = TraiCayList.get(position);
         tvName.setText(traicay.getTen());
-        tvName.setText(traicay.getMota());
+        tvMota.setText(traicay.getMota());
         imageResource.setImageResource(traicay.getHinh());
         return view;
     }
