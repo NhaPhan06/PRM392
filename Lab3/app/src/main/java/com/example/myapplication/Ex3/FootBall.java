@@ -4,35 +4,46 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class FootBall {
-    private final String fullName;
-    private final Date dateOfBirth;
-    private final int countryFlag;
-    private final int imageResource;
-
     public FootBall(String fullName, Date dateOfBirth, int countryFlag, int imageResource) {
         this.fullName = fullName;
         this.dateOfBirth = dateOfBirth;
         this.countryFlag = countryFlag;
         this.imageResource = imageResource;
     }
+    private String fullName;
+    private Date dateOfBirth;
+    private int countryFlag;
+    private int imageResource;
 
     public String getFullName() {
         return fullName;
     }
 
-    private int getAge() {
-        return (int) ((new Date().getTime() - dateOfBirth.getTime()) / (1000 * 60 * 60 * 24 * 365.25));
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
-    public String getDateOfBirthString() {
-        return new SimpleDateFormat("MMMM dd, yyyy").format(dateOfBirth) + " (age: " + getAge() + ")";
+    public Date getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(Date dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
     }
 
     public int getCountryFlag() {
         return countryFlag;
     }
 
+    public void setCountryFlag(int countryFlag) {
+        this.countryFlag = countryFlag;
+    }
+
     public int getImageResource() {
         return imageResource;
+    }
+
+    public void setImageResource(int imageResource) {
+        this.imageResource = imageResource;
     }
 }

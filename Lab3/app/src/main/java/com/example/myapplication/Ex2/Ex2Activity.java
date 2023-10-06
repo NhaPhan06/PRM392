@@ -23,6 +23,10 @@ public class Ex2Activity extends AppCompatActivity {
     List<TraiCay> traiCayList;
     TraiCayAdapter traiCayAdapter;
     Button back;
+    Button btnCreate;
+    Button btnUpdate;
+    EditText txtTen;
+    EditText txtMoTa;
     private int selectedPosition = -1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,12 +36,50 @@ public class Ex2Activity extends AppCompatActivity {
         traiCayAdapter = new TraiCayAdapter(this, R.layout.traicay_list, traiCayList);
         list.setAdapter(traiCayAdapter);
 
+        back = (Button) findViewById(R.id.back);
+        btnCreate = (Button) findViewById(R.id.btnCreate);
+        btnUpdate = (Button) findViewById(R.id.btnUpdate);
+        txtTen = (EditText) findViewById(R.id.editText1);
+        txtMoTa = (EditText) findViewById(R.id.editText2);
+
         list.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int position, long l) {
                 traiCayList.remove(position);
                 traiCayAdapter.notifyDataSetChanged();
                 return true;
+            }
+        });
+        btnUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (selectedPosition != -1) {
+                    TraiCay updatedTraiCay = traiCayList.get(selectedPosition);
+                    updatedTraiCay.setTen(txtTen.getText().toString());
+                    updatedTraiCay.setMota(txtMoTa.getText().toString());
+                    traiCayAdapter.notifyDataSetChanged();
+                    selectedPosition = -1;
+                    txtTen.setText("");
+                    txtMoTa.setText("");
+                }
+            }
+        });
+
+        btnCreate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String ten = txtTen.getText().toString();
+                String moTa = txtMoTa.getText().toString();
+
+                if (!ten.isEmpty() && !moTa.isEmpty()) {
+                    TraiCay newTraiCay = new TraiCay(ten, moTa, R.drawable.tao2);
+                    traiCayList.add(newTraiCay);
+                    traiCayAdapter.notifyDataSetChanged();
+                    txtTen.setText("");
+                    txtMoTa.setText("");
+                } else {
+                    Toast.makeText(Ex2Activity.this, "Vui lòng nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -55,8 +97,6 @@ public class Ex2Activity extends AppCompatActivity {
                 editTextMota.setText(selectedTraiCay.getMota());
             }
         });
-
-        back = (Button) findViewById(R.id.back);
 
         back.setOnClickListener(view -> {
             Intent intent = new Intent(this, MainActivity.class);

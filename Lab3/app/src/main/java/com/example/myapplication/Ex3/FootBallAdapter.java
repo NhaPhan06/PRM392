@@ -51,7 +51,7 @@ public class FootBallAdapter extends BaseAdapter {
 
         FootBall footballList = List.get(position);
         tvFullName.setText(footballList.getFullName());
-        tvDOB.setText(footballList.getDateOfBirthString());
+        tvDOB.setText(footballList.getDateOfBirth().toString());
         countryFlag.setImageResource(footballList.getCountryFlag());
         imageResource.setImageResource(footballList.getImageResource());
         return view;
