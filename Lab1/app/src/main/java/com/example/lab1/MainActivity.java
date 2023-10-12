@@ -25,10 +25,10 @@ public class MainActivity extends AppCompatActivity {
         insta = (Button) findViewById(R.id.instagram);
         face = (Button) findViewById(R.id.facebook);
 
-        Ex1.setOnClickListener(view -> {
-            Intent intent = new Intent(MainActivity.this, com.example.lab1.Ex1.class);
-            startActivity(intent);
-        });
+            Ex1.setOnClickListener(view -> {
+                Intent intent = new Intent(MainActivity.this, com.example.lab1.Ex1.class);
+                startActivity(intent);
+            });
         singin.setOnClickListener(view -> {
             Intent intent = new Intent(MainActivity.this, com.example.lab1.activity_singin.class);
             startActivity(intent);
