@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         icAdd = findViewById(R.id.icAdd);
+
         todoList = new ArrayList<>();
         todoListView = findViewById(R.id.todoListView);
         todoAdapter = new TodoAdapter(this, R.layout.row_todo, todoList);
